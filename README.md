@@ -4,3 +4,6 @@ Interactive schedule je aplikacija koja ce simulirati raspored casova za predava
 Aplikacija ce biti programirana u PJ Python3 i pokretace se u okruzenju PyCharm na operativnom sistemu Windows. 
 Program ce imati opcije dodavanje/brisanje/pregled rasporeda po predmetu, kao i jos mnogo drugih varijanti. 
 Uz pomoc GUI-ja, bice interaktivno i vizuelno popunjeno. Dodatne biblioteke: tkinter, datetime, timeboard, parsedatetime...
+
+Djordje Jovanovic (djordje.jovanovic.4896@gmail.com)
+Viseslav Djuric (viseslavdjuric@gmail.com)

@@ -13,7 +13,7 @@ textentry=Entry(window, width=20, bg="white")
 textentry.grid(row=0, column=2, sticky=W)
 Button(window, text="SUBMIT", width=6, command=click).grid(column=3, row=0, sticky=W)
 
-
+print("Proba za upload")
 
 
 window.mainloop()

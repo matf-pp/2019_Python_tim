@@ -25,3 +25,6 @@ j=0
 while j<i:
     print(lista_ponedeljak[j] + " " + lista_ponedeljak[j+1])
     j+=2
+
+
+print("Provera")

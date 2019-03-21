@@ -27,13 +27,39 @@ for row in matrica:
         print(elem, end=' ')
     print("\n")
 
+def proveri_da_li_je_zauzeto (matrica, dan, pocetak, kraj):
+    if dan=='Ponedeljak':
+        i=1;
+    if dan=='Utorak':
+        i=2;
+    if dan=='Sreda':
+        i=3;
+    if dan == 'Cetvrtak':
+        i=4;
+    if dan=='Petak':
+        i=5;
+
+    j=0
+
+    while j<kraj:
+        if matrica[i][pocetak-7+j]!=" ":
+            return False
+
+    return True
 def dodaj_ponedeljak(matrica):
-    print("Unesite raspored za ponedeljak:")
     radi = True;
     while radi:
         predmet = input("Unesite ime predmeta: ")
         vreme_pocetka_casa = int(input("Vreme pocetka casa (u formatu hh): "))
         vreme_trajanja_casa = int(input("Vreme trajanja casa: "))
+
+        postoji=proveri_da_li_je_zauzeto(matrica, 'Ponedeljak', vreme_pocetka_casa, vreme_trajanja_casa)
+
+
+    #   ako je termin zauzet, ponovo se poziva funkcija dodaj_ponedeljak
+    #   if postoji==False:
+    #       print("U ovom terminu postoji vec zakazan predmet. Pokusajte ponovo.")
+    #      matrica=dodaj_ponedeljak(matrica)
 
         matrica[1][vreme_pocetka_casa - 7] = predmet
         vreme_trajanja_casa-=1
@@ -50,6 +76,7 @@ def dodaj_ponedeljak(matrica):
 
     return matrica
 
+print("Unesite raspored za ponedeljak:")
 matrica=dodaj_ponedeljak(matrica)
 
 for row in matrica:

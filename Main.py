@@ -53,13 +53,13 @@ def dodaj_ponedeljak(matrica):
         vreme_pocetka_casa = int(input("Vreme pocetka casa (u formatu hh): "))
         vreme_trajanja_casa = int(input("Vreme trajanja casa: "))
 
-        postoji=proveri_da_li_je_zauzeto(matrica, 'Ponedeljak', vreme_pocetka_casa, vreme_trajanja_casa)
+    #   postoji=proveri_da_li_je_zauzeto(matrica, 'Ponedeljak', vreme_pocetka_casa, vreme_trajanja_casa)
 
 
     #   ako je termin zauzet, ponovo se poziva funkcija dodaj_ponedeljak
     #   if postoji==False:
-    #       print("U ovom terminu postoji vec zakazan predmet. Pokusajte ponovo.")
-    #      matrica=dodaj_ponedeljak(matrica)
+    #      print("U ovom terminu postoji vec zakazan predmet. Pokusajte ponovo.")
+    #     matrica=dodaj_ponedeljak(matrica)
 
         matrica[1][vreme_pocetka_casa - 7] = predmet
         vreme_trajanja_casa-=1

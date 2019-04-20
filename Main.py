@@ -1,4 +1,4 @@
-matrica=[[" " for i in range(15)] for j in range(6)]
+matrica=[["0" for i in range(15)] for j in range(6)]
 
 matrica[0][0]="Dan \ vreme"
 matrica[1][0]="Ponedeljak"
@@ -27,60 +27,46 @@ for row in matrica:
         print(elem, end=' ')
     print("\n")
 
-def proveri_da_li_je_zauzeto (matrica, dan, pocetak, kraj):
+def dodaj_predmet (matrica, predmet, dan, pocetak, kraj):
     if dan=='Ponedeljak':
-        i=1;
+        i=1
     if dan=='Utorak':
-        i=2;
+        i=2
     if dan=='Sreda':
-        i=3;
-    if dan == 'Cetvrtak':
-        i=4;
+        i=3
+    if dan =='Cetvrtak':
+        i=4
     if dan=='Petak':
-        i=5;
+        i=5
 
-    j=0
+    j=kraj-pocetak
+    while j > 0:
+        if matrica[i][pocetak - 7 + j] == "0":
+            matrica[i][pocetak-7+j]=predmet
+            j -= 1
 
-    while j<kraj:
-        if matrica[i][pocetak-7+j]!=" ":
-            return False
-
-    return True
-def dodaj_ponedeljak(matrica):
-    radi = True;
-    while radi:
-        predmet = input("Unesite ime predmeta: ")
-        vreme_pocetka_casa = int(input("Vreme pocetka casa (u formatu hh): "))
-        vreme_trajanja_casa = int(input("Vreme trajanja casa: "))
-
-    #   postoji=proveri_da_li_je_zauzeto(matrica, 'Ponedeljak', vreme_pocetka_casa, vreme_trajanja_casa)
-
-
-    #   ako je termin zauzet, ponovo se poziva funkcija dodaj_ponedeljak
-    #   if postoji==False:
-    #      print("U ovom terminu postoji vec zakazan predmet. Pokusajte ponovo.")
-    #     matrica=dodaj_ponedeljak(matrica)
-
-        matrica[1][vreme_pocetka_casa - 7] = predmet
-        vreme_trajanja_casa-=1
-
-        while vreme_trajanja_casa:
-            matrica[1][vreme_pocetka_casa-7+vreme_trajanja_casa]=predmet
-            vreme_trajanja_casa -= 1
-
-        odgovor = input("Da li zelite da unesete jos jedan predmet? (Odgovoriti sa Da/Ne)")
-        if odgovor == 'Da':
-            radi = True
-        else:
-            radi = False
+        #ako je termin zauzet, mora da izbaci poruku u GUI
 
     return matrica
 
-print("Unesite raspored za ponedeljak:")
-matrica=dodaj_ponedeljak(matrica)
 
-for row in matrica:
-    for elem in row:
-        print(elem, end=' ')
-    print("\n")
+#kada se klikne na dugme, program sacuva sva 4 parametra i upoziva fciju dodaj_predmet
+#predmet=TextField()
+#dan=TextField()
+#pocetak=TextField()
+#kraj=TextField()
 
+
+#ovo je samo proba
+while True:
+    predmet=input("Predmet")
+    dan=input("Dan")
+    pocetak=int(input("Pocetak"))
+    kraj=int(input("Kraj"))
+
+    matrica=dodaj_predmet(matrica, predmet, dan, pocetak, kraj)
+
+    for row in matrica:
+        for elem in row:
+           print(elem, end=' ')
+        print("\n")

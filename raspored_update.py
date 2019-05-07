@@ -1,6 +1,39 @@
 import tkinter
 from tkinter import *
 
+
+def upisipredmet():
+    predmet = predmet1.get()
+    danunedelji = dan1.get()
+
+    if danunedelji == 'Ponedeljak':
+        i = 6
+    if danunedelji == 'Utorak':
+        i = 7
+    if danunedelji == 'Sreda':
+        i = 8
+    if danunedelji == 'Cetvrtak':
+        i = 9
+    if danunedelji == 'Petak':
+        i = 10
+
+    vremepocetkacasa = int(vrp1.get())
+    vremetrajanjacasa = int(vrt1.get())
+
+    l = Label(text=predmet, relief=RIDGE)
+    l.grid(row=6, column=1, sticky=NSEW)
+
+    l = Label(text=danunedelji, relief=RIDGE)
+    l.grid(row=7, column=1, sticky=NSEW)
+
+    l = Label(text=vremepocetkacasa, relief=RIDGE)
+    l.grid(row=8, column=1, sticky=NSEW)
+
+    l = Label(text=vremetrajanjacasa, relief=RIDGE)
+    l.grid(row=9, column=1, sticky=NSEW)
+
+
+
 window = Tk()
 window.title("Raspored")
 window.geometry("1100x300")
@@ -30,36 +63,27 @@ vrp.grid(column=0, row=2)
 vrp1 = Entry(window, width=11)
 vrp1.grid(column=1, row=2)
 
+vrt = Label(window, text="Vreme trajanja casa")
+vrt.grid(column=0, row=3)
 
-vrk = Label(window, text= "Vreme kraja casa")
-vrk.grid(column=0, row=3)
-
-vrk1 = Entry(window, width=11)
-vrk1.grid(column=1, row=3)
+vrt1 = Entry(window, width=11)
+vrt1.grid(column=1, row=3)
 
 for i in range(6,11):
     for j in range(1,14):
         l = Label(text=" ", relief=RIDGE)
         l.grid(row=i, column=j, sticky=NSEW)
 
-for i in range(6,7):
-    for j in range(1,2):
-        l = Label(text="dsadsa", relief=RIDGE)
-        l.grid(row=i, column=j, sticky=NSEW)
-
 dv = Label(text="Dan \ Vreme", heigh=1, width=10, relief=RIDGE )
 dv.grid(column=0, row=5)
 
-pon = Label(text="Ponedeljak ", bg="silver",
-            heigh=1, width=10, relief=RIDGE)
+pon = Label(text="Ponedeljak ", bg="silver", heigh=1, width=10, relief=RIDGE)
 pon.grid(column=0, row=6)
 
-ut = Label(text="Utorak ", bg="silver",
-            heigh=1, width=10, relief=RIDGE)
+ut = Label(text="Utorak ", bg="silver", heigh=1, width=10, relief=RIDGE)
 ut.grid(column=0, row=7)
 
-sreda = Label(text="Sreda ", bg="silver",
-                heigh=1, width=10, relief=RIDGE)
+sreda = Label(text="Sreda ", bg="silver", heigh=1, width=10, relief=RIDGE)
 sreda.grid(column=0, row=8)
 
 cet = Label(text="Cetvrtak ", bg="silver",
@@ -109,12 +133,11 @@ label12.grid(column=12, row=5)
 label13 = Label(text="20:00 - 21:00", relief=RIDGE)
 label13.grid(column=13, row=5)
 
-
-
-dodaj = Button(window, text="Upisi")
+dodaj = Button(window, text="Upisi", command=upisipredmet)
 dodaj.grid(column=3, row = 2, sticky = NSEW)
 
-
-
+# primer
+l = Label(text="Proba", relief=RIDGE)
+l.grid(row=9, column=5, sticky=NSEW)
 
 window.mainloop()

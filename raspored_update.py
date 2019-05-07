@@ -1,9 +1,27 @@
 import tkinter
 from tkinter import *
 
+def dodajpredmet():
+    if dan1=='Ponedeljak':
+        i=6
+    if dan1=='Utorak':
+        i=7
+    if dan1=='Sreda':
+        i=8
+    if dan1=='Cetvrtak':
+        i=9
+    if dan1=='Petak':
+        i=10
+
+    imepredmeta=predmet1.get()
+    pocetak=vrp1.get()
+    kraj=vrk1.get()
+
+
+
 window = Tk()
 window.title("Raspored")
-window.geometry("600x200")
+window.geometry("1100x300")
 
 
 ###  OKVIR ###
@@ -37,11 +55,10 @@ vrk.grid(column=0, row=3)
 vrk1 = Entry(window, width=11)
 vrk1.grid(column=1, row=3)
 
-def stampaj():
-    for i in range(6,11):
-        for j in range(1,14):
-            l = Label(text=" ", relief=RIDGE)
-            l.grid(row=i, column=j, sticky=NSEW)
+for i in range(6,11):
+    for j in range(1,14):
+        l = Label(text=" ", relief=RIDGE)
+        l.grid(row=i, column=j, sticky=NSEW)
 
 
     dv = Label(window, text="Dan \ Vreme", heigh=1, width=10, relief=RIDGE )
@@ -108,7 +125,7 @@ def stampaj():
 
 
 
-dodaj = Button(window, text="Dodaj", command = stampaj)
+dodaj = Button(window, text="Upisi", command=dodajpredmet)
 dodaj.grid(column=3, row = 3)
 
 

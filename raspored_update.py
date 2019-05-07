@@ -4,35 +4,34 @@ from tkinter import *
 
 def upisipredmet():
     predmet = predmet1.get()
+    predmet1.delete(0, 30)
     danunedelji = dan1.get()
+    dan1.delete(0, 30)
 
-    if danunedelji == 'Ponedeljak':
+    if danunedelji == 'ponedeljak':
         i = 6
-    if danunedelji == 'Utorak':
+    elif danunedelji == 'utorak':
         i = 7
-    if danunedelji == 'Sreda':
+    elif danunedelji == 'sreda':
         i = 8
-    if danunedelji == 'Cetvrtak':
+    elif danunedelji == 'cetvrtak':
         i = 9
-    if danunedelji == 'Petak':
+    else:
         i = 10
 
     vremepocetkacasa = int(vrp1.get())
+    vrp1.delete(0, 10)
     vremetrajanjacasa = int(vrt1.get())
+    vrt1.delete(0, 10)
 
-    l = Label(text=predmet, relief=RIDGE)
-    l.grid(row=6, column=1, sticky=NSEW)
+    j = vremepocetkacasa - 7
 
-    l = Label(text=danunedelji, relief=RIDGE)
-    l.grid(row=7, column=1, sticky=NSEW)
+    while vremetrajanjacasa > 0:
+        l = Label(text=predmet, relief=RIDGE)
+        l.grid(row=i, column=j, sticky=NSEW)
 
-    l = Label(text=vremepocetkacasa, relief=RIDGE)
-    l.grid(row=8, column=1, sticky=NSEW)
-
-    l = Label(text=vremetrajanjacasa, relief=RIDGE)
-    l.grid(row=9, column=1, sticky=NSEW)
-
-
+        vremetrajanjacasa = vremetrajanjacasa - 1
+        j = j + 1
 
 window = Tk()
 window.title("Raspored")

@@ -2,6 +2,19 @@ import tkinter
 from tkinter import *
 
 
+def provera_zauzeto(dan, vreme, trajanje):
+    # za dan nam prosledjuje i
+
+    indikator = True
+    i = dan
+    j = vreme - 7
+
+
+#  while trajanje > 0 :
+# if  labela empty then return false, else true
+
+# return True
+
 def upisipredmet():
     predmet = predmet1.get()
     predmet1.delete(0, 30)
@@ -25,6 +38,11 @@ def upisipredmet():
     vrt1.delete(0, 10)
 
     j = vremepocetkacasa - 7
+
+    # if provera_zauzeto(i, vremepocetkacasa, vremetrajanjacasa) != True:
+    # break
+    # l = Label(text="Ovaj termin je zauzet", relief=RIDGE)
+    # l.grid(row=2, column=5, sticky=NSEW)
 
     while vremetrajanjacasa > 0:
         l = Label(text=predmet, relief=RIDGE)

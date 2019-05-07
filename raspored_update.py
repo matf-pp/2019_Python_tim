@@ -33,6 +33,38 @@ def upisipredmet():
         vremetrajanjacasa = vremetrajanjacasa - 1
         j = j + 1
 
+def obrisipredmet():
+    predmet = predmet1.get()
+    predmet1.delete(0, 30)
+    danunedelji = dan1.get()
+    dan1.delete(0, 30)
+
+    if danunedelji == 'ponedeljak':
+        i = 6
+    elif danunedelji == 'utorak':
+        i = 7
+    elif danunedelji == 'sreda':
+        i = 8
+    elif danunedelji == 'cetvrtak':
+        i = 9
+    else:
+        i = 10
+
+    vremepocetkacasa = int(vrp1.get())
+    vrp1.delete(0, 10)
+    vremetrajanjacasa = int(vrt1.get())
+    vrt1.delete(0, 10)
+
+    j = vremepocetkacasa - 7
+
+    while vremetrajanjacasa > 0:
+        l = Label(text=" ", relief=RIDGE)
+        l.grid(row=i, column=j, sticky=NSEW)
+
+        vremetrajanjacasa = vremetrajanjacasa - 1
+        j = j + 1
+
+
 window = Tk()
 window.title("Raspored")
 window.geometry("1100x300")
@@ -134,6 +166,9 @@ label13.grid(column=13, row=5)
 
 dodaj = Button(window, text="Upisi", command=upisipredmet)
 dodaj.grid(column=3, row = 2, sticky = NSEW)
+
+obrisi = Button(window, text="Obrisi", command=obrisipredmet)
+obrisi.grid(column=4,row=2, sticky = NSEW)
 
 # primer
 l = Label(text="Proba", relief=RIDGE)

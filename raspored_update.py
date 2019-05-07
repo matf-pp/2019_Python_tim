@@ -82,7 +82,6 @@ def obrisipredmet():
         vremetrajanjacasa = vremetrajanjacasa - 1
         j = j + 1
 
-
 window = Tk()
 window.title("Raspored")
 window.geometry("1100x300")

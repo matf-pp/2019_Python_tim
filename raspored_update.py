@@ -69,8 +69,9 @@ def obrisipredmet():
     j = vremepocetkacasa - 7
 
     while vremetrajanjacasa > 0:
-        l = Label(text=" ", relief=RIDGE,  bg="gray95")
-        l.grid(row=i, column=j, sticky=NSEW)
+        if j <= 13:
+            l = Label(text=" ", relief=RIDGE, bg="gray95")
+            l.grid(row=i, column=j, sticky=NSEW)
 
         vremetrajanjacasa = vremetrajanjacasa - 1
         j = j + 1

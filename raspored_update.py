@@ -6,7 +6,7 @@ from datetime import datetime
 
 colors = ["PaleTurquoise4", "CadetBlue1", "medium spring green", "green yellow", "lime green",
           "violet", "silver", "lightblue", "snow", "pale violet red", "maroon"]
-
+dani = ["Ponedeljak", "Utorak", "Sreda", "Cetvrtak", "Petak"]
 
 def upisipredmet():
     dodaj.configure(bg=random.choice(colors))
@@ -91,11 +91,11 @@ predmet1 = Entry(window, width=11)
 predmet1.grid(column=1, row=0)
 
 
-dan = Label(window, text= "Dan u nedelji")
-dan.grid(column=0, row=1)
+#dan = Label(window, text= "Dan u nedelji")
+#dan.grid(column=0, row=1)
 
-dan1 = Entry(window, width=11)
-dan1.grid(column=1, row=1)
+#dan1 = Entry(window, width=11)
+#dan1.grid(column=1, row=1)
 
 
 vrp = Label(window, text= "Vreme pocetka casa")
@@ -188,6 +188,14 @@ labela_vreme.grid(column=12, row=0)
 datum = datetime.now().strftime('%d-%m-%Y')
 labela_datum = Label(text=datum, width=9, relief=RIDGE)
 labela_datum.grid(column=11, row=0)
+
+pom = StringVar(window)
+pom.set(dani[0]) # default value
+
+om = OptionMenu(window, pom, *dani)
+om.grid(column=0, row=1)
+
+
 
 
 window.mainloop()

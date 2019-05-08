@@ -13,16 +13,17 @@ def upisipredmet():
     obrisi.configure(bg="gray95")
     predmet = predmet1.get()
     predmet1.delete(0, 30)
-    danunedelji = dan1.get()
-    dan1.delete(0, 30)
+    #  danunedelji = dan1.get()
+    # dan1.delete(0, 30)
 
-    if danunedelji == 'ponedeljak':
+    #  danunedelji= ovde mora da se napise koji je dan izaran iz skupa
+    if danunedelji == 'Ponedeljak':
         i = 6
-    elif danunedelji == 'utorak':
+    elif danunedelji == 'Utorak':
         i = 7
-    elif danunedelji == 'sreda':
+    elif danunedelji == 'Sreda':
         i = 8
-    elif danunedelji == 'cetvrtak':
+    elif danunedelji == 'Cetvrtak':
         i = 9
     else:
         i = 10
@@ -47,16 +48,17 @@ def obrisipredmet():
     dodaj.configure(bg="gray95")
     predmet = predmet1.get()
     predmet1.delete(0, 30)
-    danunedelji = dan1.get()
-    dan1.delete(0, 30)
+    # danunedelji = dan1.get()
+    # dan1.delete(0, 30)
 
-    if danunedelji == 'ponedeljak':
+    # danunedelji= ovde mora da se napise koji je dan izaran iz skupa
+    if danunedelji == 'Ponedeljak':
         i = 6
-    elif danunedelji == 'utorak':
+    elif danunedelji == 'Utorak':
         i = 7
-    elif danunedelji == 'sreda':
+    elif danunedelji == 'Sreda':
         i = 8
-    elif danunedelji == 'cetvrtak':
+    elif danunedelji == 'Cetvrtak':
         i = 9
     else:
         i = 10
@@ -194,6 +196,7 @@ pom.set(dani[0]) # default value
 
 om = OptionMenu(window, pom, *dani)
 om.grid(column=0, row=1)
+
 
 
 

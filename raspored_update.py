@@ -1,6 +1,8 @@
 import tkinter
 from tkinter import *
 import random
+from datetime import datetime
+
 
 colors = ["red", "orange", "yellow", "green", "blue", "violet", "silver", "lightblue", "white", "green"]
 
@@ -72,7 +74,7 @@ def obrisipredmet():
         j = j + 1
 
 window = Tk()
-window.title("Raspored")
+window.title("Interactive schedule")
 window.geometry("1100x300")
 
 
@@ -177,8 +179,13 @@ dodaj.grid(column=4, row = 2, sticky = NSEW)
 obrisi = Button(window, text="Obrisi", command=obrisipredmet)
 obrisi.grid(column=5,row=2, sticky = NSEW)
 
-ukloni = Button(window, text="Ukloni", command = ukloni)
-ukloni.grid(column=6, row =2 , sticky=NSEW)
+vreme = datetime.now().strftime('%H:%M:%S')
+labela_vreme = Label(text=vreme, width=9, relief=RIDGE)
+labela_vreme.grid(column=12, row=0)
+
+datum = datetime.now().strftime('%d-%m-%Y')
+labela_datum = Label(text=datum, width=9, relief=RIDGE)
+labela_datum.grid(column=11, row=0)
 
 
 window.mainloop()

@@ -13,10 +13,9 @@ def upisipredmet():
     obrisi.configure(bg="gray95")
     predmet = predmet1.get()
     predmet1.delete(0, 30)
-    #  danunedelji = dan1.get()
-    # dan1.delete(0, 30)
+    danunedelji = pom.get()
+ #   dan1.delete(0, 30)
 
-    #  danunedelji= ovde mora da se napise koji je dan izaran iz skupa
     if danunedelji == 'Ponedeljak':
         i = 6
     elif danunedelji == 'Utorak':
@@ -48,10 +47,9 @@ def obrisipredmet():
     dodaj.configure(bg="gray95")
     predmet = predmet1.get()
     predmet1.delete(0, 30)
-    # danunedelji = dan1.get()
-    # dan1.delete(0, 30)
+    danunedelji = pom.get()
+  #  dan1.delete(0, 30)
 
-    # danunedelji= ovde mora da se napise koji je dan izaran iz skupa
     if danunedelji == 'Ponedeljak':
         i = 6
     elif danunedelji == 'Utorak':
@@ -192,11 +190,10 @@ labela_datum = Label(text=datum, width=9, relief=RIDGE)
 labela_datum.grid(column=11, row=0)
 
 pom = StringVar(window)
-pom.set(dani[0]) # default value
+pom.set(dani[0])
 
 om = OptionMenu(window, pom, *dani)
 om.grid(column=0, row=1)
-
 
 
 

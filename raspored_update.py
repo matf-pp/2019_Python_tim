@@ -4,12 +4,13 @@ import random
 from datetime import datetime
 
 
-colors = ["red", "orange", "yellow", "green", "blue", "violet", "silver", "lightblue", "white", "green"]
+colors = ["PaleTurquoise4", "CadetBlue1", "medium spring green", "green yellow", "lime green",
+          "violet", "silver", "lightblue", "snow", "pale violet red", "maroon"]
 
 
 def upisipredmet():
     dodaj.configure(bg=random.choice(colors))
-    obrisi.configure(bg="#ffffff")
+    obrisi.configure(bg="gray95")
     predmet = predmet1.get()
     predmet1.delete(0, 30)
     danunedelji = dan1.get()
@@ -43,7 +44,7 @@ def upisipredmet():
 
 def obrisipredmet():
     obrisi.configure(bg=random.choice(colors))
-    dodaj.configure(bg="#ffffff")
+    dodaj.configure(bg="gray95")
     predmet = predmet1.get()
     predmet1.delete(0, 30)
     danunedelji = dan1.get()
@@ -68,7 +69,7 @@ def obrisipredmet():
     j = vremepocetkacasa - 7
 
     while vremetrajanjacasa > 0:
-        l = Label(text=" ", relief=RIDGE,  bg="#ffffff")
+        l = Label(text=" ", relief=RIDGE,  bg="gray95")
         l.grid(row=i, column=j, sticky=NSEW)
 
         vremetrajanjacasa = vremetrajanjacasa - 1

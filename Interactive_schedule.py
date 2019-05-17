@@ -2,11 +2,30 @@ import tkinter
 from tkinter import *
 import random
 from datetime import datetime
+import numpy as np
+import tkinter.messagebox
 
 
 colors = ["PaleTurquoise4", "CadetBlue1", "medium spring green", "green yellow", "lime green",
           "violet", "silver", "lightblue", "snow", "pale violet red", "maroon"]
-dani = ["Ponedeljak", "Utorak", "Sreda", "Cetvrtak", "Petak"]
+dani = ["Ponedeljak", "Utorak", "Sreda", "Cetvrtak", "Petak", "Subota", "Nedelja"]
+
+
+def dodaj_vikend():
+    for i in range(11, 13):
+        for j in range(1, 14):
+            l.append(Label(text=" ", relief=RIDGE).grid(row=i, column=j, sticky=NSEW))
+
+    subota.grid(column=0, row=11)
+    nedelja.grid(column=0, row=12)
+
+
+def ukloni_vikend():
+    # for i in range(11, 13):
+    # for j in range(1, 14):
+
+    subota.grid_remove()
+    nedelja.grid_remove()
 
 def upisipredmet():
     dodaj.configure(bg=random.choice(colors))
@@ -23,23 +42,30 @@ def upisipredmet():
         i = 8
     elif danunedelji == 'Cetvrtak':
         i = 9
-    else:
+    elif danunedelji == 'Petak':
         i = 10
+    elif danunedelji == 'Subota':
+        i = 11
+    else:
+        i =12
 
     vremepocetkacasa = int(vrp1.get())
     vrp1.delete(0, 10)
-    vremetrajanjacasa = int(vrt1.get())
+    duzinatrajanjacasa = int(vrt1.get())
     vrt1.delete(0, 10)
 
     j = vremepocetkacasa - 7
 
-    while vremetrajanjacasa > 0:
-        if j <= 13:
-            l = Label(text=predmet, relief=RIDGE, bg="lightblue")
-            l.grid(row=i, column=j, sticky=NSEW)
+    if vremepocetkacasa >= 8 and vremepocetkacasa <= 21 and vremepocetkacasa + duzinatrajanjacasa <= 21:
+        while duzinatrajanjacasa > 0:
+            if j <= 13:
+                l.append(Label(text=predmet, relief=RIDGE, bg="lightblue").grid(row=i, column=j, sticky=NSEW))
+                duzinatrajanjacasa = duzinatrajanjacasa - 1
+                j = j + 1
 
-        vremetrajanjacasa = vremetrajanjacasa - 1
-        j = j + 1
+    else:
+        tkinter.messagebox.showinfo("Upozorenje", "Greska!\nMolimo Vas da unesete tacno vreme i duzinu trajanja casa."
+                                                  "\nCasovi pocinju u 8:00, a zavrsavaju se u 21:00.")
 
 def obrisipredmet():
     obrisi.configure(bg=random.choice(colors))
@@ -57,23 +83,30 @@ def obrisipredmet():
         i = 8
     elif danunedelji == 'Cetvrtak':
         i = 9
-    else:
+    elif danunedelji == 'Petak':
         i = 10
+    elif danunedelji == 'Subota':
+        i = 11
+    else:
+        i = 12
 
     vremepocetkacasa = int(vrp1.get())
     vrp1.delete(0, 10)
-    vremetrajanjacasa = int(vrt1.get())
+    duzinatrajanjacasa = int(vrt1.get())
     vrt1.delete(0, 10)
 
     j = vremepocetkacasa - 7
 
-    while vremetrajanjacasa > 0:
-        if j <= 13:
-            l = Label(text=" ", relief=RIDGE, bg="gray95")
-            l.grid(row=i, column=j, sticky=NSEW)
+    if vremepocetkacasa >= 8 and vremepocetkacasa <= 21 and vremepocetkacasa + duzinatrajanjacasa <= 21:
+        while duzinatrajanjacasa > 0:
+            if j <= 13:
+                l.append(Label(text=" ", relief=RIDGE, bg="gray95").grid(row=i, column=j, sticky=NSEW))
+                duzinatrajanjacasa = duzinatrajanjacasa - 1
+                j = j + 1
 
-        vremetrajanjacasa = vremetrajanjacasa - 1
-        j = j + 1
+    else:
+        tkinter.messagebox.showinfo("Upozorenje", "Greska!\nMolimo Vas da unesete tacno vreme i duzinu trajanja casa."
+                                                  "\nCasovi pocinju u 8:00, a zavrsavaju se u 21:00.")
 
 window = Tk()
 window.title("Interactive schedule")
@@ -94,16 +127,16 @@ vrp.grid(column=0, row=2)
 vrp1 = Entry(window, width=11)
 vrp1.grid(column=1, row=2)
 
-vrt = Label(window, text="Vreme trajanja casa")
+vrt = Label(window, text="Duzina trajanja casa")
 vrt.grid(column=0, row=3)
 
 vrt1 = Entry(window, width=11)
 vrt1.grid(column=1, row=3)
 
+l = [[" "] * 14] * 7
 for i in range(6,11):
     for j in range(1,14):
-        l = Label(text=" ", relief=RIDGE)
-        l.grid(row=i, column=j, sticky=NSEW)
+        l.append(Label(text=" ", relief=RIDGE).grid(row=i, column=j, sticky=NSEW))
 
 dv = Label(text="Dan \ Vreme", heigh=1, width=10, relief=RIDGE )
 dv.grid(column=0, row=5)
@@ -169,7 +202,7 @@ dodaj = Button(window, text="Upisi", command=upisipredmet)
 dodaj.grid(column=4, row = 2, sticky = NSEW)
 
 obrisi = Button(window, text="Obrisi", command=obrisipredmet)
-obrisi.grid(column=5,row=2, sticky = NSEW)
+obrisi.grid(column=9, row=2, sticky=NSEW)
 
 vreme = datetime.now().strftime('%H:%M:%S')
 labela_vreme = Label(text=vreme, width=9, relief=RIDGE)
@@ -185,7 +218,13 @@ pom.set(dani[0])
 om = OptionMenu(window, pom, *dani)
 om.grid(column=0, row=1)
 
+subota = Label(text="Subota", bg="silver", heigh=1, width=10, relief=RIDGE)
+nedelja = Label(text="Nedelja", bg="silver", heigh=1, width=10, relief=RIDGE)
 
+vikendp = Button(window, text="Vikend +", command=dodaj_vikend)
+vikendp.grid(column=6, row=2, sticky=NSEW)
 
+vikendm = Button(window, text="Vikend -", command=ukloni_vikend)
+vikendm.grid(column=7, row=2, sticky=NSEW)
 
 window.mainloop()

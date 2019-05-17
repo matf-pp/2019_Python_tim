@@ -5,7 +5,7 @@ Aplikacija ce biti programirana u PJ Python3. Program ce imati opcije dodavanje/
 
 # Pokretanje programa i dodatne biblioteke
 
-Za pokretanje programa, neophodno je instalirati Python 3.0 verziju za Ubuntu i Windows sisteme. Dodatne biblioteke koje su u sklopu instalacije Python 3.0 verzije i koje su koriscene u projektu: tkinter, datetime.
+Za pokretanje programa, neophodno je instalirati Python 3.0 verziju za Ubuntu i Windows sisteme. Dodatne biblioteke koje su u sklopu instalacije Python 3.0 verzije i koje su koriscene u projektu: tkinter, datetime, random.
 
 # Autori
 

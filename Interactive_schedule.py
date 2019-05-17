@@ -2,7 +2,6 @@ import tkinter
 from tkinter import *
 import random
 from datetime import datetime
-import numpy as np
 import tkinter.messagebox
 
 

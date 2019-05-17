@@ -14,7 +14,6 @@ def upisipredmet():
     predmet = predmet1.get()
     predmet1.delete(0, 30)
     danunedelji = pom.get()
- #   dan1.delete(0, 30)
 
     if danunedelji == 'Ponedeljak':
         i = 6
@@ -48,7 +47,7 @@ def obrisipredmet():
     predmet = predmet1.get()
     predmet1.delete(0, 30)
     danunedelji = pom.get()
-  #  dan1.delete(0, 30)
+
 
     if danunedelji == 'Ponedeljak':
         i = 6
@@ -80,23 +79,13 @@ window = Tk()
 window.title("Interactive schedule")
 window.geometry("1100x300")
 
-
-###  OKVIR ###
-
-### DANI ###
+###  OKVIR ### ### DANI ###
 
 predmet = Label(window, text= "Ime predmeta")
 predmet.grid(column=0, row=0)
 
 predmet1 = Entry(window, width=11)
 predmet1.grid(column=1, row=0)
-
-
-#dan = Label(window, text= "Dan u nedelji")
-#dan.grid(column=0, row=1)
-
-#dan1 = Entry(window, width=11)
-#dan1.grid(column=1, row=1)
 
 
 vrp = Label(window, text= "Vreme pocetka casa")

@@ -13,7 +13,7 @@ dani = ["Ponedeljak", "Utorak", "Sreda", "Cetvrtak", "Petak", "Subota", "Nedelja
 def dodaj_vikend():
     for i in range(11, 13):
         for j in range(1, 14):
-            l.append(Label(text=" ", relief=RIDGE).grid(row=i, column=j, sticky=NSEW))
+            l = Label(text=" ", relief=RIDGE).grid(row=i, column=j, sticky=NSEW)
 
     subota.grid(column=0, row=11)
     nedelja.grid(column=0, row=12)
@@ -58,7 +58,7 @@ def upisipredmet():
     if vremepocetkacasa >= 8 and vremepocetkacasa <= 21 and vremepocetkacasa + duzinatrajanjacasa <= 21:
         while duzinatrajanjacasa > 0:
             if j <= 13:
-                l.append(Label(text=predmet, relief=RIDGE, bg="lightblue").grid(row=i, column=j, sticky=NSEW))
+                l = Label(text=predmet, relief=RIDGE, bg="lightblue").grid(row=i, column=j, sticky=NSEW)
                 duzinatrajanjacasa = duzinatrajanjacasa - 1
                 j = j + 1
 
@@ -99,7 +99,7 @@ def obrisipredmet():
     if vremepocetkacasa >= 8 and vremepocetkacasa <= 21 and vremepocetkacasa + duzinatrajanjacasa <= 21:
         while duzinatrajanjacasa > 0:
             if j <= 13:
-                l.append(Label(text=" ", relief=RIDGE, bg="gray95").grid(row=i, column=j, sticky=NSEW))
+                l = Label(text=" ", relief=RIDGE, bg="gray95").grid(row=i, column=j, sticky=NSEW)
                 duzinatrajanjacasa = duzinatrajanjacasa - 1
                 j = j + 1
 
@@ -132,10 +132,10 @@ vrt.grid(column=0, row=3)
 vrt1 = Entry(window, width=11)
 vrt1.grid(column=1, row=3)
 
-l = [[" "] * 14] * 7
+l = [[] * 14] * 7
 for i in range(6,11):
     for j in range(1,14):
-        l.append(Label(text=" ", relief=RIDGE).grid(row=i, column=j, sticky=NSEW))
+        l = Label(text=" ", relief=RIDGE, bg="gray95").grid(row=i, column=j, sticky=NSEW)
 
 dv = Label(text="Dan \ Vreme", heigh=1, width=10, relief=RIDGE )
 dv.grid(column=0, row=5)

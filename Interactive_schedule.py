@@ -52,6 +52,15 @@ def exportuj():
     else:
         tkinter.messagebox.showinfo("Greska!", "Molimo Vas unesite ime rasporeda!")
 
+
+def proveri_zauzeto(i, j, k):
+    while j <= k:
+        if not matrica[i][j] == " ":
+            return False
+        j = j + 1
+
+    return True
+
 def dodaj_vikend():
     for i in range(11, 13):
         for j in range(1, 14):
@@ -62,9 +71,6 @@ def dodaj_vikend():
 
 
 def ukloni_vikend():
-    # for i in range(11, 13):
-    #    l[i]=[" "]
-
 
     subota.grid_remove()
     nedelja.grid_remove()
@@ -98,18 +104,23 @@ def upisipredmet():
 
     j = vremepocetkacasa - 7
 
-    if vremepocetkacasa >= 8 and vremepocetkacasa <= 21 and vremepocetkacasa + duzinatrajanjacasa <= 21:
-        while duzinatrajanjacasa > 0:
-            if j <= 13:
-                matrica[i - 6][j - 1] = predmet
-                l = Label(text=predmet, relief=RIDGE, bg="lightblue").grid(row=i, column=j, sticky=NSEW)
-                duzinatrajanjacasa = duzinatrajanjacasa - 1
-                j = j + 1
+    if proveri_zauzeto(i - 6, j - 1, j - 1 + duzinatrajanjacasa):
+
+        if vremepocetkacasa >= 8 and vremepocetkacasa <= 21 and vremepocetkacasa + duzinatrajanjacasa <= 21:
+            while duzinatrajanjacasa > 0:
+                if j <= 13:
+                    matrica[i - 6][j - 1] = predmet
+                    l = Label(text=predmet, relief=RIDGE, bg="lightblue").grid(row=i, column=j, sticky=NSEW)
+                    duzinatrajanjacasa = duzinatrajanjacasa - 1
+                    j = j + 1
+
+        else:
+            tkinter.messagebox.showinfo("Upozorenje",
+                                        "Greska!\nMolimo Vas da unesete tacno vreme i duzinu trajanja casa."
+                                        "\nCasovi pocinju u 8:00, a zavrsavaju se u 21:00.")
 
     else:
-        tkinter.messagebox.showinfo("Upozorenje", "Greska!\nMolimo Vas da unesete tacno vreme i duzinu trajanja casa."
-                                                  "\nCasovi pocinju u 8:00, a zavrsavaju se u 21:00.")
-
+        tkinter.messagebox.showinfo("Upozorenje", "Ovaj termin je zauzet.\nMolimo Vas izaberite neki drugi termin!")
     # for i in range(0, 7):
     # for j in range(0, 14):
     # print(matrica[i][j])

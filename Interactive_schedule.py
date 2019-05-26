@@ -3,6 +3,7 @@ from tkinter import *
 import random
 from datetime import datetime
 import tkinter.messagebox
+
 from xlwt import Workbook
 import xlwt
 
@@ -170,8 +171,13 @@ def obrisipredmet():
                                                   "\nCasovi pocinju u 8:00, a zavrsavaju se u 21:00.")
 
 
+"""" Da li navedeni predmet postoji u rasporedu
 def predmet_info():
     ime = proveri_predmet.get()
+
+    m = 8
+    n = 14
+    k = 15
 
     if not ime == "":
         for i in range(0, 7):
@@ -219,11 +225,19 @@ def predmet_info():
                     else:
                         vreme = "20:00 - 21:00"
 
-                    print(dan, vreme)
+                    lab1 = Label(text=dan, relief=RIDGE)
+                    lab1.grid(column=m, row=n)
+
+                    lab2 = Label(text=vreme, relief=RIDGE)
+                    lab2.grid(column=m, row=k)
+
+                    m=m+1
 
 
     else:
         tkinter.messagebox.showinfo("Greska!", "Molimo Vas unesite ime rasporeda!")
+
+"""
 
 
 window = Tk()
@@ -351,10 +365,10 @@ vikendm.grid(column=7, row=2, sticky=NSEW)
 wb = xlwt.Workbook()
 
 excel = Button(window, text="Save", command=exportuj)
-excel.grid(column=6, row=14, sticky=NSEW)
+excel.grid(column=3, row=14, sticky=NSEW)
 
 ime_excel = Entry(window, width=11)
-ime_excel.grid(column=7, row=14)
+ime_excel.grid(column=4, row=14)
 
 # pokusaj open excel fajla
 # excel_open = Button(window, text="Open")
@@ -364,10 +378,10 @@ ime_excel.grid(column=7, row=14)
 # ime_excel_open.grid(column=9, row=14)
 
 proveri = Button(window, text="Proveri", command=predmet_info)
-proveri.grid(column=8, row=14, sticky=NSEW)
+proveri.grid(column=6, row=14, sticky=NSEW)
 
 proveri_predmet = Entry(window, width=11)
-proveri_predmet.grid(column=9, row=14)
+proveri_predmet.grid(column=7, row=14)
 
 
 window.mainloop()

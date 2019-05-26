@@ -3,14 +3,12 @@ from tkinter import *
 import random
 from datetime import datetime
 import tkinter.messagebox
-import xlwt
 from xlwt import Workbook
-
+import xlwt
 
 colors = ["PaleTurquoise4", "CadetBlue1", "medium spring green", "green yellow", "lime green",
           "violet", "silver", "lightblue", "snow", "pale violet red", "maroon"]
 dani = ["Ponedeljak", "Utorak", "Sreda", "Cetvrtak", "Petak", "Subota", "Nedelja"]
-
 
 def exportuj():
     ime = ime_excel.get()
@@ -121,10 +119,6 @@ def upisipredmet():
 
     else:
         tkinter.messagebox.showinfo("Upozorenje", "Ovaj termin je zauzet.\nMolimo Vas izaberite neki drugi termin!")
-    # for i in range(0, 7):
-    # for j in range(0, 14):
-    # print(matrica[i][j])
-    # print("\n")
 
 def obrisipredmet():
     obrisi.configure(bg=random.choice(colors))
@@ -298,5 +292,13 @@ excel.grid(column=6, row=14, sticky=NSEW)
 
 ime_excel = Entry(window, width=11)
 ime_excel.grid(column=7, row=14)
+
+# pokusaj open excel fajla
+# excel_open = Button(window, text="Open")
+# excel_open.grid(column=8, row=14, sticky=NSEW)
+
+# ime_excel_open = Entry(window, width=11)
+# ime_excel_open.grid(column=9, row=14)
+
 
 window.mainloop()

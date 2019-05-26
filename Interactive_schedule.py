@@ -377,11 +377,12 @@ ime_excel.grid(column=4, row=14)
 # ime_excel_open = Entry(window, width=11)
 # ime_excel_open.grid(column=9, row=14)
 
-proveri = Button(window, text="Proveri", command=predmet_info)
-proveri.grid(column=6, row=14, sticky=NSEW)
 
-proveri_predmet = Entry(window, width=11)
-proveri_predmet.grid(column=7, row=14)
+# proveri = Button(window, text="Proveri", command=predmet_info)
+# proveri.grid(column=6, row=14, sticky=NSEW)
+
+# proveri_predmet = Entry(window, width=11)
+# proveri_predmet.grid(column=7, row=14)
 
 
 window.mainloop()

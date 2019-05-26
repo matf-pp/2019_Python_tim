@@ -103,23 +103,29 @@ def upisipredmet():
 
     j = vremepocetkacasa - 7
 
-    if proveri_zauzeto(i - 6, j - 1, j - 2 + duzinatrajanjacasa):
+    if vremepocetkacasa <= 7 or vremepocetkacasa + duzinatrajanjacasa > 21:
+        tkinter.messagebox.showinfo("Upozorenje",
+                                    "Greska!\nMolimo Vas da unesete tacno vreme i duzinu trajanja casa."
+                                    "\nCasovi pocinju u 8:00, a zavrsavaju se u 21:00.")
+    else:
 
-        if vremepocetkacasa >= 8 and vremepocetkacasa <= 21 and vremepocetkacasa + duzinatrajanjacasa <= 21:
-            while duzinatrajanjacasa > 0:
-                if j <= 13:
-                    matrica[i - 6][j - 1] = predmet
-                    l = Label(text=predmet, relief=RIDGE, bg="lightblue").grid(row=i, column=j, sticky=NSEW)
-                    duzinatrajanjacasa = duzinatrajanjacasa - 1
-                    j = j + 1
+        if proveri_zauzeto(i - 6, j - 1, j - 2 + duzinatrajanjacasa):
+
+            if vremepocetkacasa >= 8 and vremepocetkacasa <= 21 and vremepocetkacasa + duzinatrajanjacasa <= 21:
+                while duzinatrajanjacasa > 0:
+                    if j <= 13:
+                        matrica[i - 6][j - 1] = predmet
+                        l = Label(text=predmet, relief=RIDGE, bg="lightblue").grid(row=i, column=j, sticky=NSEW)
+                        duzinatrajanjacasa = duzinatrajanjacasa - 1
+                        j = j + 1
+
+            else:
+                tkinter.messagebox.showinfo("Upozorenje",
+                                            "Greska!\nMolimo Vas da unesete tacno vreme i duzinu trajanja casa."
+                                            "\nCasovi pocinju u 8:00, a zavrsavaju se u 21:00.")
 
         else:
-            tkinter.messagebox.showinfo("Upozorenje",
-                                        "Greska!\nMolimo Vas da unesete tacno vreme i duzinu trajanja casa."
-                                        "\nCasovi pocinju u 8:00, a zavrsavaju se u 21:00.")
-
-    else:
-        tkinter.messagebox.showinfo("Upozorenje", "Ovaj termin je zauzet.\nMolimo Vas izaberite neki drugi termin!")
+            tkinter.messagebox.showinfo("Upozorenje", "Ovaj termin je zauzet.\nMolimo Vas izaberite neki drugi termin!")
 
 def obrisipredmet():
     obrisi.configure(bg=random.choice(colors))

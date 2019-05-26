@@ -52,6 +52,7 @@ def exportuj():
 
 
 def proveri_zauzeto(i, j, k):
+
     while j <= k:
         if not matrica[i][j] == " ":
             return False
@@ -102,7 +103,7 @@ def upisipredmet():
 
     j = vremepocetkacasa - 7
 
-    if proveri_zauzeto(i - 6, j - 1, j - 1 + duzinatrajanjacasa):
+    if proveri_zauzeto(i - 6, j - 1, j - 2 + duzinatrajanjacasa):
 
         if vremepocetkacasa >= 8 and vremepocetkacasa <= 21 and vremepocetkacasa + duzinatrajanjacasa <= 21:
             while duzinatrajanjacasa > 0:
@@ -161,6 +162,62 @@ def obrisipredmet():
     else:
         tkinter.messagebox.showinfo("Upozorenje", "Greska!\nMolimo Vas da unesete tacno vreme i duzinu trajanja casa."
                                                   "\nCasovi pocinju u 8:00, a zavrsavaju se u 21:00.")
+
+
+def predmet_info():
+    ime = proveri_predmet.get()
+
+    if not ime == "":
+        for i in range(0, 7):
+            for j in range(0, 14):
+                if matrica[i][j] == ime:
+                    if i == 0:
+                        dan = "Ponedeljak"
+                    elif i == 1:
+                        dan = "Utorak"
+                    elif i == 2:
+                        dan = "Sreda"
+                    elif i == 3:
+                        dan = "Cetvrtak"
+                    elif i == 4:
+                        dan = "Petak"
+                    elif i == 5:
+                        dan = "Subota"
+                    else:
+                        dan = "Nedelja"
+
+                    if j == 0:
+                        vreme = "08:00 - 09:00"
+                    elif j == 1:
+                        vreme = "09:00 - 10:00"
+                    elif j == 2:
+                        vreme = "10:00 - 11:00"
+                    elif j == 3:
+                        vreme = "11:00 - 12:00"
+                    elif j == 4:
+                        vreme = "12:00 - 13:00"
+                    elif j == 5:
+                        vreme = "13:00 - 14:00"
+                    elif j == 6:
+                        vreme = "14:00 - 15:00"
+                    elif j == 7:
+                        vreme = "15:00 - 16:00"
+                    elif j == 8:
+                        vreme = "16:00 - 17:00"
+                    elif j == 9:
+                        vreme = "17:00 - 18:00"
+                    elif j == 10:
+                        vreme = "18:00 - 19:00"
+                    elif j == 11:
+                        vreme = "19:00 - 20:00"
+                    else:
+                        vreme = "20:00 - 21:00"
+
+                    print(dan, vreme)
+
+
+    else:
+        tkinter.messagebox.showinfo("Greska!", "Molimo Vas unesite ime rasporeda!")
 
 
 window = Tk()
@@ -299,6 +356,12 @@ ime_excel.grid(column=7, row=14)
 
 # ime_excel_open = Entry(window, width=11)
 # ime_excel_open.grid(column=9, row=14)
+
+proveri = Button(window, text="Proveri", command=predmet_info)
+proveri.grid(column=8, row=14, sticky=NSEW)
+
+proveri_predmet = Entry(window, width=11)
+proveri_predmet.grid(column=9, row=14)
 
 
 window.mainloop()

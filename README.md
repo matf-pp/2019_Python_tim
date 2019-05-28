@@ -1,7 +1,7 @@
 # Interactive schedule
 
 Interactive schedule je aplikacija koja ce simulirati raspored casova za predavanja i vezbe na fakultetu i u skoli. 
-Aplikacija ce biti programirana u PJ Python3. Program ce imati opcije dodavanje/brisanje predmeta u raspored. Uz pomoc GUI-ja, bice interaktivno i vizuelno popunjeno.
+Aplikacija ce biti programirana u PJ Python3. Program ce imati opcije dodavanje/brisanje predmeta u raspored, info o predmenu i na kraju eksportovanje rasporeda u Excel fajl. Uz pomoc GUI-ja, bice interaktivno i vizuelno popunjeno.
 
 # Pokretanje programa i dodatne biblioteke
 

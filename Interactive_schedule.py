@@ -232,7 +232,7 @@ def obrisipredmet():
 
 window = Tk()
 window.title("Interactive schedule")
-window.geometry("1100x300")
+window.geometry("1100x350")
 
 ###  OKVIR ### ### DANI ###
 

@@ -106,6 +106,11 @@ def upisipredmet():
 
     j = vremepocetkacasa - 7
 
+    if vremepocetkacasa + duzinatrajanjacasa > 21:
+        tkinter.messagebox.showinfo("Upozorenje",
+                                    "Greska!\nMolimo Vas da unesete tacno vreme i duzinu trajanja casa."
+                                    "\nCasovi pocinju u 8:00, a zavrsavaju se u 21:00.")
+
     if proveri_zauzeto(i - 6, j - 1, j - 1 + duzinatrajanjacasa):
 
         if vremepocetkacasa >= 8 and vremepocetkacasa <= 21 and vremepocetkacasa + duzinatrajanjacasa <= 21:

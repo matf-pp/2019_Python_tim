@@ -5,7 +5,7 @@ Aplikacija ce biti programirana u PJ Python3. Program ce imati opcije dodavanje/
 
 # Pokretanje programa i dodatne biblioteke
 
-Pokretanje na Windows operativnom sistemu: ekstraktovati Interactive_schedule.rar folder, u kom se nalazi fajl Interactive_schedule.exe. Dvoklikom na Interactive_schedule.exe fajl, pokrece se program i spreman je za upotrebu.
+Pokretanje na Windows operativnom sistemu: ekstraktovati Release.rar folder, u kom se nalazi fajl Interactive_schedule.exe. Dvoklikom na Interactive_schedule.exe fajl, pokrece se program i spreman je za upotrebu.
 Dodatne biblioteke koje su u sklopu instalacije Python 3.0 verzije i koje su koriscene u projektu: tkinter, datetime, random, xlwt.
 
 # Autori

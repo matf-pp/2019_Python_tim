@@ -4,13 +4,70 @@ import random
 from datetime import datetime
 import tkinter.messagebox
 import xlwt
-from xlwt import Workbook
 
 
 colors = ["PaleTurquoise4", "CadetBlue1", "medium spring green", "green yellow", "lime green",
           "violet", "silver", "lightblue", "snow", "pale violet red", "maroon"]
 dani = ["Ponedeljak", "Utorak", "Sreda", "Cetvrtak", "Petak", "Subota", "Nedelja"]
 
+
+def info_predmet():
+    root = Tk()
+    root.title("Predmet info")
+    root.geometry("300x200")
+
+    ime_predmeta = info_unos.get()
+
+    for i in range(0, 7):
+        for j in range(0, 13):
+            if ime_predmeta == matrica[i][j]:
+
+                if i == 0:
+                    dan = "Ponedeljak"
+                elif i == 1:
+                    dan = "Utorak"
+                elif i == 2:
+                    dan = "Sreda"
+                elif i == 3:
+                    dan = "Cetvrtak"
+                elif i == 4:
+                    dan = "Petak"
+                elif i == 5:
+                    dan = "Subota"
+                else:
+                    dan = "Nedelja"
+
+                if j == 0:
+                    vreme = "08:00 - 09:00"
+                elif j == 1:
+                    vreme = "09:00 - 10:00"
+                elif j == 2:
+                    vreme = "10:00 - 11:00"
+                elif j == 3:
+                    vreme = "11:00 - 12:00"
+                elif j == 4:
+                    vreme = "12:00 - 13:00"
+                elif j == 5:
+                    vreme = "13:00 - 14:00"
+                elif j == 6:
+                    vreme = "14:00 - 15:00"
+                elif j == 7:
+                    vreme = "15:00 - 16:00"
+                elif j == 8:
+                    vreme = "16:00 - 17:00"
+                elif j == 9:
+                    vreme = "17:00 - 18:00"
+                elif j == 10:
+                    vreme = "18:00 - 19:00"
+                elif j == 11:
+                    vreme = "19:00 - 20:00"
+                else:
+                    vreme = "20:00 - 21:00"
+
+                text = Label(root, text=dan + vreme)
+                text.pack()
+
+    window.mainloop()
 
 def exportuj():
     ime = ime_excel.get()
@@ -128,10 +185,7 @@ def upisipredmet():
 
     else:
         tkinter.messagebox.showinfo("Upozorenje", "Ovaj termin je zauzet.\nMolimo Vas izaberite neki drugi termin!")
-    # for i in range(0, 7):
-    # for j in range(0, 14):
-    # print(matrica[i][j])
-    # print("\n")
+
 
 def obrisipredmet():
     obrisi.configure(bg=random.choice(colors))
@@ -308,5 +362,11 @@ iii.grid(column=6, row= 15, sticky=NSEW)
 
 ime_excel = Entry(window, width=11)
 ime_excel.grid(column=7, row=15)
+
+info = Button(window, text="Info", command=info_predmet)
+info.grid(column=10, row=15, sticky=NSEW)
+
+info_unos = Entry(window, width=11)
+info_unos.grid(column=9, row=15)
 
 window.mainloop()

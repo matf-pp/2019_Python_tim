@@ -23,19 +23,19 @@ def info_predmet():
             if ime_predmeta == matrica[i][j]:
 
                 if i == 0:
-                    dan = "Ponedeljak"
+                    dan = "Ponedeljak: "
                 elif i == 1:
-                    dan = "Utorak"
+                    dan = "Utorak: "
                 elif i == 2:
-                    dan = "Sreda"
+                    dan = "Sreda: "
                 elif i == 3:
-                    dan = "Cetvrtak"
+                    dan = "Cetvrtak: "
                 elif i == 4:
-                    dan = "Petak"
+                    dan = "Petak: "
                 elif i == 5:
-                    dan = "Subota"
+                    dan = "Subota: "
                 else:
-                    dan = "Nedelja"
+                    dan = "Nedelja: "
 
                 if j == 0:
                     vreme = "08:00 - 09:00"
@@ -131,6 +131,9 @@ def ukloni_vikend():
 
     subota.grid_remove()
     nedelja.grid_remove()
+    for i in range(11, 13):
+     for j in range(1, 14):
+        l = Label(text=" ").grid(row=i, column=j, sticky=NSEW)
 
 
 
